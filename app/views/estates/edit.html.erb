@@ -1,0 +1,18 @@
+<h1>Editing Estate</h1>
+
+<%= render 'form', estate: @estate %>
+
+<%= link_to 'Show', @estate %> |
+
+<%= form_with(model: @estate_pulas, local: true) do |form| %>
+    <%= form.fields_for :stations do |s| %>
+        <p>最寄駅3</p>
+        <%= s.label :最寄路線 %>
+        <%= s.text_field :station_line %>
+        <%= s.label :最寄駅名 %>
+        <%= s.text_field :station_name %>
+        <%= s.label :徒歩距離 %>
+        <%= s.number_field :walk_time %>
+    <% end %>
+<% end %>
+<%= link_to 'Back', estates_path %>
